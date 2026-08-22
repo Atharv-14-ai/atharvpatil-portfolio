@@ -107,7 +107,7 @@ export default function App() {
                 <img
                   src="/logo.jpg"
                   alt="Logo"
-                  className="w-12 h-12 rounded-full object-cover shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                  className="w-8 h-8 rounded-full object-cover"
                 />
 
                 <span className="text-[10px] md:text-xs tracking-[0.3em] text-white/70 uppercase font-medium">
