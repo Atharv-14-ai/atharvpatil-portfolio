@@ -27,6 +27,8 @@ export default function ContactSection() {
 
         setStatus("sending");
 
+        const istTime = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+
         try {
             const response = await fetch("https://formsubmit.co/ajax/atharv439@gmail.com", {
                 method: "POST",
@@ -38,7 +40,8 @@ export default function ContactSection() {
                     name: form.name,
                     email: form.email,
                     message: form.message,
-                    _subject: `New Portfolio Message from ${form.name}`
+                    _subject: `New Portfolio Message from ${form.name}`,
+                    Sent_At_IST: istTime
                 })
             });
 
