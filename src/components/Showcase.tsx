@@ -469,6 +469,14 @@ function CertModal({ cert, onClose }: { cert: any; onClose: () => void }) {
 
 export default function ShowcaseSection() {
   const [selectedCert, setSelectedCert] = useState<typeof certificates[0] | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className="relative w-full min-h-[85vh] md:min-h-screen bg-black text-white px-4 sm:px-8 md:px-16 lg:px-24 py-0 md:py-12 -mt-16 sm:mt-0 md:mt-12">
@@ -512,8 +520,8 @@ export default function ShowcaseSection() {
               items={[...projects, ...projects].map((item, i) => (
                 <ProjectCard key={i} item={item} index={i} />
               ))} 
-              radius={430} 
-              itemWidth={290} 
+              radius={isMobile ? 220 : 430} 
+              itemWidth={isMobile ? 230 : 290} 
             />
           </div>
 
