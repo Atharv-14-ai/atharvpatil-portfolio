@@ -48,6 +48,33 @@ const techCategories = [
 
 const projects = [
   {
+    title: "Sushi Mobile App UI",
+    desc: "A sleek and modern mobile app UI design for a sushi restaurant, featuring high quality photography, dark mode, and glassmorphism.",
+    tech: "Figma, Mobile UI Design",
+    domain: "UI/UX",
+    thumbnail: "/sushi_mobile_ui_thumbnail.jpg",
+    github: "",
+    live: "https://www.figma.com/proto/QrGBMHTtWryF1rftrnplhV/Untitled?node-id=9-3&p=f&viewport=116%2C277%2C0.11&t=cU4gKSSWs4aIPiCL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=11%3A196&page-id=0%3A1",
+  },
+  {
+    title: "Restaurant Website Prototype",
+    desc: "A beautiful, modern restaurant website UI design presentation featuring high quality food photography and an elegant layout.",
+    tech: "Figma, UI/UX Design",
+    domain: "UI/UX",
+    thumbnail: "/restaurant_ui_thumbnail.jpg",
+    github: "",
+    live: "https://www.figma.com/proto/QrGBMHTtWryF1rftrnplhV/Untitled?node-id=49-1881&p=f&viewport=360%2C130%2C0.08&t=WaAXFdGcF9yRkD2T-1&scaling=scale-down&content-scaling=fixed&page-id=49%3A1876",
+  },
+  {
+    title: "EV Charging Station App UI",
+    desc: "A modern, sleek mobile app UI design for an EV charging station finder, featuring a map interface and intelligent routing.",
+    tech: "Figma, Mobile UI Design",
+    domain: "UI/UX",
+    thumbnail: "/ev_charging_app_thumbnail.jpg",
+    github: "",
+    live: "https://www.figma.com/proto/QrGBMHTtWryF1rftrnplhV/Untitled?node-id=65-5235&p=f&viewport=-501%2C166%2C0.07&t=22pVp9f5Ke62p67R-1&scaling=min-zoom&content-scaling=responsive&starting-point-node-id=65%3A5235&page-id=49%3A2523",
+  },
+  {
     title: "AI BioScan",
     desc: "Intelligent Health Risk Assessment System using machine learning for symptom analysis and real-time health risk prediction with personalized recommendations.",
     tech: "React.js, Python, PostgreSQL, AI/ML",
@@ -204,18 +231,20 @@ function ProjectCard({ item, index }: { item: typeof projects[0], index: number 
                 <ExternalLinkIcon />
               </a>
             )}
-            <a
-              href={item.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-8 h-8 rounded-full 
-              bg-white/10 border border-white/20 text-white 
-              hover:bg-white hover:text-black hover:scale-110 
-              transition-all duration-300 ml-2 shrink-0 pointer-events-auto z-10"
-              title="View on GitHub"
-            >
-              <GithubIcon />
-            </a>
+            {item.github && (
+              <a
+                href={item.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-8 h-8 rounded-full 
+                bg-white/10 border border-white/20 text-white 
+                hover:bg-white hover:text-black hover:scale-110 
+                transition-all duration-300 ml-2 shrink-0 pointer-events-auto z-10"
+                title="View on GitHub"
+              >
+                <GithubIcon />
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -509,7 +538,7 @@ export default function ShowcaseSection() {
               Projects
             </h2>
             <CylinderCarousel 
-              items={[...projects, ...projects].map((item, i) => (
+              items={projects.map((item, i) => (
                 <ProjectCard key={i} item={item} index={i} />
               ))} 
               radius={430} 

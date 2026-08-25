@@ -183,7 +183,9 @@ export default function ContactSection() {
 
                             {/* Email */}
                             <a
-                                href="mailto:atharv439@gmail.com"
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=atharv439@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="group relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-[#E5E4E2]/40 hover:bg-[#E5E4E2]/10 hover:shadow-[0_0_25px_rgba(229,228,226,0.25)]"
                                 aria-label="Email"
                             >
