@@ -105,6 +105,16 @@ const projects = [
 
 const certificates = [
   { 
+    title: "UI Design", 
+    tech: "UI Design", 
+    thumbnail: "/certificates/UI design.pdf" 
+  },
+  { 
+    title: "UX Design", 
+    tech: "UX Design", 
+    thumbnail: "/certificates/UX design.pdf" 
+  },
+  { 
     title: "Data Flair Web Development", 
     tech: "Web Development", 
     thumbnail: "/certificates/Data Flair WebDevelopment.pdf" 
