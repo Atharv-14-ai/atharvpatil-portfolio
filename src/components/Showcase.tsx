@@ -115,6 +115,11 @@ const certificates = [
     thumbnail: "/certificates/UX design.pdf" 
   },
   { 
+    title: "Graphics Design", 
+    tech: "Graphics Design", 
+    thumbnail: "/certificates/Graphics Design.pdf" 
+  },
+  { 
     title: "Data Flair Web Development", 
     tech: "Web Development", 
     thumbnail: "/certificates/Data Flair WebDevelopment.pdf" 
