@@ -23,14 +23,14 @@ export default function AboutSection() {
       >
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden mb-20">
           <VelocityScroll defaultVelocity={3} numRows={1} className="max-w-full">
-            <span className="font-bold font-sans" style={{ fontSize: "5rem", lineHeight: "1.1", color: "#E5E4E2" }}>
+            <span className="font-bold font-display" style={{ fontSize: "5rem", lineHeight: "1.1", color: "#E5E4E2" }}>
               ABOUT <span className="text-white">ME</span>
             </span>
           </VelocityScroll>
           <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-black to-transparent"></div>
           <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-black to-transparent"></div>
           <VelocityScroll defaultVelocity={-3} numRows={1} className="max-w-full mt-2">
-            <span className="font-bold font-sans" style={{ fontSize: "5rem", lineHeight: "1.1", color: "#E5E4E2" }}>
+            <span className="font-bold font-display" style={{ fontSize: "5rem", lineHeight: "1.1", color: "#E5E4E2" }}>
               ABOUT <span className="text-white">ME</span>
             </span>
           </VelocityScroll>

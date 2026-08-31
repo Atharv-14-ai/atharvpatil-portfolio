@@ -72,7 +72,7 @@ export default function FrontendDeveloperSection() {
             initial={{ opacity: 0, scale: 0.85, y: 50 }}
             animate={inView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.85, y: 50 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-extrabold leading-[1.05] tracking-tight text-white text-[clamp(48px,8vw,100px)]"
+            className="font-display font-extrabold leading-[1.05] tracking-tighter text-white text-[clamp(48px,8vw,100px)]"
           >
             Full Stack
           </motion.h1>
@@ -81,7 +81,7 @@ export default function FrontendDeveloperSection() {
             initial={{ opacity: 0, x: -80, rotate: -4 }}
             animate={inView ? { opacity: 1, x: 0, rotate: 0 } : { opacity: 0, x: -80, rotate: -4 }}
             transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="font-extrabold leading-[1.05] tracking-tight text-white/70 text-[clamp(48px,8vw,100px)]"
+            className="font-display font-extrabold leading-[1.05] tracking-tighter text-white/70 text-[clamp(48px,8vw,100px)]"
           >
             Developer
           </motion.h1>
@@ -90,7 +90,7 @@ export default function FrontendDeveloperSection() {
              initial={{ opacity: 0, y: 30 }}
              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
              transition={{ duration: 1, delay: 0.4 }}
-             className="font-bold tracking-tight text-white/50 text-[clamp(24px,4vw,40px)] mb-6 mt-2 uppercase tracking-widest"
+             className="font-display font-bold text-white/50 text-[clamp(20px,4vw,36px)] mb-8 mt-2 uppercase tracking-[0.2em]"
           >
             & UI/UX Designer
           </motion.h2>

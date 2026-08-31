@@ -216,7 +216,7 @@ function ProjectCard({ item, index }: { item: typeof projects[0], index: number 
           <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-mono mb-2 block">
             0{(index % 3) + 1} — {item.domain || "PROJECT"}
           </span>
-          <h3 className="text-xl font-bold tracking-tight text-white mb-2 line-clamp-1">
+          <h3 className="font-display text-2xl font-bold tracking-tight text-white mb-2 line-clamp-1">
             {item.title}
           </h3>
           <p className="text-xs text-white/60 mb-4 leading-relaxed line-clamp-3">
@@ -341,10 +341,11 @@ function CertCard({ item, onView }: { item: typeof certificates[0] & { link?: st
         }
 
         .portfolio10-cert-content h3 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 12px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: -0.025em;
         }
 
         .portfolio10-cert-content p {
@@ -535,7 +536,7 @@ export default function ShowcaseSection() {
         {/* Heading */}
         <div className="relative overflow-hidden mb-12">
           <h1
-            className="text-center font-black tracking-tight leading-none drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] text-white opacity-0 whitespace-nowrap animate-[headingReveal_1s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards]"
+            className="font-display text-center font-black tracking-tighter leading-none drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] text-white opacity-0 whitespace-nowrap animate-[headingReveal_1s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards]"
             style={{ fontSize: "clamp(32px,6vw,80px)" }}
           >
             <span className="inline-block bg-gradient-to-b from-white via-white to-white/45 bg-clip-text text-transparent">
@@ -549,7 +550,7 @@ export default function ShowcaseSection() {
           
           {/* Projects Section */}
           <div className="w-full relative z-20 flex flex-col items-center" style={{ perspective: '1000px' }}>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-16 opacity-0 animate-[fadeSlideUp_0.8s_ease_forwards]">
+            <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tighter text-white mb-16 opacity-0 animate-[fadeSlideUp_0.8s_ease_forwards]">
               Projects
             </h2>
             <CylinderCarousel 
@@ -563,7 +564,7 @@ export default function ShowcaseSection() {
 
           {/* Certificates Section */}
           <div id="certificates" className="w-full max-w-5xl px-4 flex flex-col items-center">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-16">
+            <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tighter text-white mb-16">
               Certificates
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-full items-stretch">
@@ -577,7 +578,7 @@ export default function ShowcaseSection() {
 
           {/* Tech Stack Section */}
           <div id="techstack" className="w-full flex flex-col items-center">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-12">
+            <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tighter text-white mb-12">
               Tech Stack
             </h2>
             <TechGrid />
