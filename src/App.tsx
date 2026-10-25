@@ -122,7 +122,7 @@ export default function App() {
                   className="w-8 h-8 rounded-full object-cover"
                 />
 
-                <span className="text-[10px] md:text-xs tracking-[0.3em] text-white/70 uppercase font-medium">
+                <span className="text-sm md:text-base tracking-[0.2em] font-semibold text-white uppercase font-display bg-gradient-to-r from-white via-[#E5E4E2] to-white/80 bg-clip-text text-transparent">
                   ATHARV · PATIL
                 </span>
               </div>
@@ -194,8 +194,9 @@ export default function App() {
                 </li>
               </ul>
 
-              <div className="hidden md:block text-[10px] tracking-[0.3em] text-white/70 uppercase">
-                {time}
+              <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs md:text-sm tracking-[0.2em] font-mono text-white/90">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E5E4E2] animate-pulse" />
+                <span>{time}</span>
               </div>
 
               <button

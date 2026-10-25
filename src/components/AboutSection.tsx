@@ -51,17 +51,22 @@ export default function AboutSection() {
           className="md:w-1/3 flex justify-center mb-12 md:mb-0"
         >
           <div className="relative group cursor-pointer">
-            {/* Platinum Border Glow */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#E5E4E2] to-slate-700 rounded-2xl opacity-30 group-hover:opacity-75 transition duration-500" />
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f0f0f] shadow-2xl">
-              <img
-                src="/profile.jpeg"
-                alt="Atharv Patil"
-                className="w-full max-w-[350px] h-[450px] object-cover object-top transition-transform duration-700 scale-110 group-hover:scale-115"
-              />
-
-              {/* Shine effect on hover */}
-              <div className="absolute top-0 -left-[100%] h-full w-[50%] skew-x-[-25deg] bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:left-[200%] transition-all duration-1000 ease-in-out pointer-events-none z-20" />
+            {/* Gradient border ring - strictly around the photo */}
+            <div className="relative rounded-2xl p-[3px] bg-gradient-to-br from-[#ffffff] via-[#E5E4E2] to-slate-400 shadow-[0_0_20px_rgba(229,228,226,0.25)] opacity-90 group-hover:opacity-100 group-hover:shadow-[0_0_30px_rgba(229,228,226,0.45)] transition duration-500">
+              {/* Padding layer inside the border */}
+              <div className="rounded-xl p-[4px] bg-[#0d0d0d]">
+                <div className="relative rounded-lg overflow-hidden">
+                  <img
+                    src="/profile.jpeg"
+                    alt="Atharv Patil"
+                    className="w-full max-w-[350px] h-[450px] object-cover object-top transition-transform duration-700 scale-130 group-hover:scale-140"
+                  />
+                  {/* Shine effect on hover strictly confined to photo */}
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
+                    <div className="absolute top-0 -left-[100%] h-full w-[50%] skew-x-[-25deg] bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:left-[200%] transition-all duration-1000 ease-in-out pointer-events-none" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>

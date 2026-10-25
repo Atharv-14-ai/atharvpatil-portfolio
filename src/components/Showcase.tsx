@@ -209,68 +209,73 @@ const Spinner = () => (
 
 function ProjectCard({ item, index }: { item: typeof projects[0], index: number }) {
   return (
-    <div
-      className="group relative rounded-3xl border border-white/15 overflow-hidden bg-[#0c0c0c]
-      hover:border-white/30 transition-all duration-300 shadow-2xl w-[90%] max-w-[340px] md:w-full md:max-w-none mx-auto flex flex-col"
-    >
-      <div className="relative w-full h-48 overflow-hidden bg-white/5">
-        <img
-          src={item.thumbnail}
-          alt={item.tech}
-          draggable={false}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-      </div>
-      <div className="p-6 flex flex-col justify-between flex-grow">
-        <div>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-mono mb-2 block">
-            0{(index % 3) + 1} — {item.domain || "PROJECT"}
-          </span>
-          <h3 className="font-display text-2xl font-bold tracking-tight text-white mb-2 line-clamp-1">
-            {item.title}
-          </h3>
-          <p className="text-xs text-white/60 mb-4 leading-relaxed line-clamp-3">
-            {item.desc}
-          </p>
-        </div>
-        <div className="flex items-center justify-between mt-auto">
-          <div className="flex flex-wrap gap-1.5">
-            {item.tech.split(', ').map(t => (
-              <span key={t} className="px-2 py-0.5 text-[9px] font-medium uppercase rounded-sm border border-white/10 bg-white/5 text-white/70">
-                {t}
-              </span>
-            ))}
-          </div>
-          <div className="flex shrink-0">
-            {item.live && (
-              <a
-                href={item.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-8 h-8 rounded-full 
-                bg-white/10 border border-white/20 text-white 
-                hover:bg-white hover:text-black hover:scale-110 
-                transition-all duration-300 ml-2 shrink-0 pointer-events-auto z-10"
-                title="View Live Site"
-              >
-                <ExternalLinkIcon />
-              </a>
-            )}
-            {item.github && (
-              <a
-                href={item.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-8 h-8 rounded-full 
-                bg-white/10 border border-white/20 text-white 
-                hover:bg-white hover:text-black hover:scale-110 
-                transition-all duration-300 ml-2 shrink-0 pointer-events-auto z-10"
-                title="View on GitHub"
-              >
-                <GithubIcon />
-              </a>
-            )}
+    <div className="relative group cursor-pointer w-[90%] max-w-[340px] md:w-full md:max-w-none mx-auto">
+      {/* Gradient border ring - matches profile photo platinum style */}
+      <div className="relative rounded-3xl p-[3px] bg-gradient-to-br from-[#ffffff] via-[#E5E4E2] to-slate-400 shadow-[0_0_20px_rgba(229,228,226,0.25)] opacity-90 group-hover:opacity-100 group-hover:shadow-[0_0_30px_rgba(229,228,226,0.45)] transition duration-500">
+        {/* Padding layer inside the border */}
+        <div className="rounded-[22px] p-[4px] bg-[#0d0d0d]">
+          <div className="rounded-[18px] overflow-hidden bg-[#0c0c0c] flex flex-col">
+            <div className="relative w-full h-48 overflow-hidden bg-white/5">
+              <img
+                src={item.thumbnail}
+                alt={item.tech}
+                draggable={false}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            </div>
+            <div className="p-6 flex flex-col justify-between flex-grow">
+              <div>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-mono mb-2 block">
+                  0{(index % 3) + 1} — {item.domain || "PROJECT"}
+                </span>
+                <h3 className="font-display text-2xl font-bold tracking-tight text-white mb-2 line-clamp-1">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-white/60 mb-4 leading-relaxed line-clamp-3">
+                  {item.desc}
+                </p>
+              </div>
+              <div className="flex items-center justify-between mt-auto">
+                <div className="flex flex-wrap gap-1.5">
+                  {item.tech.split(', ').map(t => (
+                    <span key={t} className="px-2 py-0.5 text-[9px] font-medium uppercase rounded-sm border border-white/10 bg-white/5 text-white/70">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex shrink-0">
+                  {item.live && (
+                    <a
+                      href={item.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-8 h-8 rounded-full 
+                      bg-white/10 border border-white/20 text-white 
+                      hover:bg-white hover:text-black hover:scale-110 
+                      transition-all duration-300 ml-2 shrink-0 pointer-events-auto z-10"
+                      title="View Live Site"
+                    >
+                      <ExternalLinkIcon />
+                    </a>
+                  )}
+                  {item.github && (
+                    <a
+                      href={item.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-8 h-8 rounded-full 
+                      bg-white/10 border border-white/20 text-white 
+                      hover:bg-white hover:text-black hover:scale-110 
+                      transition-all duration-300 ml-2 shrink-0 pointer-events-auto z-10"
+                      title="View on GitHub"
+                    >
+                      <GithubIcon />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

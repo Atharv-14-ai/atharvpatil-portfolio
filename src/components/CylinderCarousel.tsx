@@ -46,7 +46,6 @@ export default function CylinderCarousel({ items, radius = 450, itemWidth = 320 
                   style={{
                     width: itemWidth,
                     transform: `rotateY(${rotateY}deg) translateZ(${radius}px)`,
-                    backfaceVisibility: 'hidden', // Crucial: saves 6x GPU render passes
                   }}
                 >
                   {item}
