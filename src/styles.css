@@ -147,5 +147,12 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeSpeed;
+    overflow-x: hidden;
+  }
+
+  /* GPU-composite promotion for key animated elements to eliminate paint cycles during scroll */
+  .will-change-transform {
+    will-change: transform;
+    transform: translateZ(0);
   }
 }

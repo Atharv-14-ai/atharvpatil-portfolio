@@ -57,7 +57,19 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxTextProps) {
   const x = useTransform(baseX, (v) => `${wrap(-100 / repetitions, 0, v)}%`);
 
   const directionFactor = React.useRef<number>(1);
+  const [isInView, setIsInView] = useState(true);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsInView(entry.isIntersecting);
+    });
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   useAnimationFrame((t, delta) => {
+    if (!isInView) return; // Completely idle when out of viewport
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
     if (velocityFactor.get() < 0) {

@@ -23,7 +23,7 @@ export default function CylinderCarousel({ items, radius = 450, itemWidth = 320 
   const theta = 360 / numItems;
 
   return (
-    <div ref={wrapperRef} className="relative w-full h-[250vh]">
+    <div ref={wrapperRef} className="relative w-full h-[400vh]">
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden pt-24">
 
         <div

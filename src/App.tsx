@@ -85,23 +85,24 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    // Calm, controlled scroll speed (wheelMultiplier 0.5 prevents flying through sections)
     const lenis = new Lenis({
-      duration: 0.8,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.05, // Slower, more controlled easing
+      wheelMultiplier: 0.5, // 50% scroll speed: calm, controlled and never frantic
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.5,
+      touchMultiplier: 0.8,
+      autoResize: true,
     });
 
-    let animationFrameId: number;
-    function raf(time: number) {
+    let rafId: number;
+    function update(time: number) {
       lenis.raf(time);
-      animationFrameId = requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(update);
     }
-    animationFrameId = requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(update);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
