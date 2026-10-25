@@ -104,65 +104,77 @@ const projects = [
 ];
 
 const certificates = [
-  { 
-    title: "UI Design", 
-    tech: "UI Design", 
-    thumbnail: "/certificates/UI design.pdf" 
+  {
+    title: "UI Design",
+    tech: "UI Design",
+    pdf: "/certificates/UI design.pdf",
+    preview: "/certificates/thumbnails/UI design.jpg"
   },
-  { 
-    title: "UX Design", 
-    tech: "UX Design", 
-    thumbnail: "/certificates/UX design.pdf" 
+  {
+    title: "UX Design",
+    tech: "UX Design",
+    pdf: "/certificates/UX design.pdf",
+    preview: "/certificates/thumbnails/UX design.jpg"
   },
-  { 
-    title: "Graphics Design", 
-    tech: "Graphics Design", 
-    thumbnail: "/certificates/Graphics Design.pdf" 
+  {
+    title: "Graphics Design",
+    tech: "Graphics Design",
+    pdf: "/certificates/Graphics Design.pdf",
+    preview: "/certificates/thumbnails/Graphics Design.jpg"
   },
-  { 
-    title: "Data Flair Web Development", 
-    tech: "Web Development", 
-    thumbnail: "/certificates/Data Flair WebDevelopment.pdf" 
+  {
+    title: "Data Flair Web Development",
+    tech: "Web Development",
+    pdf: "/certificates/Data Flair WebDevelopment.pdf",
+    preview: "/certificates/thumbnails/Data Flair WebDevelopment.jpg"
   },
-  { 
-    title: "Simplilearn Full Stack Development", 
-    tech: "Full Stack", 
-    thumbnail: "/certificates/Simplilearn Full Stack Development.pdf" 
+  {
+    title: "Simplilearn Full Stack Development",
+    tech: "Full Stack",
+    pdf: "/certificates/Simplilearn Full Stack Development.pdf",
+    preview: "/certificates/thumbnails/Simplilearn Full Stack Development.jpg"
   },
-  { 
-    title: "AWS Academy Cloud Foundations", 
-    tech: "AWS", 
-    thumbnail: "/certificates/AWS Academy Cloud Foundations.pdf" 
+  {
+    title: "AWS Academy Cloud Foundations",
+    tech: "AWS",
+    pdf: "/certificates/AWS Academy Cloud Foundations.pdf",
+    preview: "/certificates/thumbnails/AWS Academy Cloud Foundations.jpg"
   },
-  { 
-    title: "Google Cloud Generative AI Leader", 
-    tech: "Google Cloud / AI", 
-    thumbnail: "/certificates/Udemy Agentic AI.pdf" 
+  {
+    title: "Google Cloud Generative AI Leader",
+    tech: "Google Cloud / AI",
+    pdf: "/certificates/Udemy Agentic AI.pdf",
+    preview: "/certificates/thumbnails/Udemy Agentic AI.jpg"
   },
-  { 
-    title: "Walmart Software Engineering Virtual Experience", 
-    tech: "Software Engineering", 
-    thumbnail: "/certificates/Walmart Software Engineering.pdf" 
+  {
+    title: "Walmart Software Engineering Virtual Experience",
+    tech: "Software Engineering",
+    pdf: "/certificates/Walmart Software Engineering.pdf",
+    preview: "/certificates/thumbnails/Walmart Software Engineering.jpg"
   },
-  { 
-    title: "Infosys Mastering Python", 
-    tech: "Python", 
-    thumbnail: "/certificates/Infosys Mastering Python.pdf" 
+  {
+    title: "Infosys Mastering Python",
+    tech: "Python",
+    pdf: "/certificates/Infosys Mastering Python.pdf",
+    preview: "/certificates/thumbnails/Infosys Mastering Python.jpg"
   },
-  { 
-    title: "Udemy Advanced Mathematics", 
-    tech: "Mathematics", 
-    thumbnail: "/certificates/Udemy Advanced Mathematics.pdf" 
+  {
+    title: "Udemy Advanced Mathematics",
+    tech: "Mathematics",
+    pdf: "/certificates/Udemy Advanced Mathematics.pdf",
+    preview: "/certificates/thumbnails/Udemy Advanced Mathematics.jpg"
   },
-  { 
-    title: "Udemy Cyber Defender", 
-    tech: "Cybersecurity", 
-    thumbnail: "/certificates/Udemy Cyber Defender.pdf" 
+  {
+    title: "Udemy Cyber Defender",
+    tech: "Cybersecurity",
+    pdf: "/certificates/Udemy Cyber Defender.pdf",
+    preview: "/certificates/thumbnails/Udemy Cyber Defender.jpg"
   },
-  { 
-    title: "Android Developer Internship", 
-    tech: "Android / Mobile", 
-    thumbnail: "/certificates/Android Developer Internship.pdf" 
+  {
+    title: "Android Developer Internship",
+    tech: "Android / Mobile",
+    pdf: "/certificates/Android Developer Internship.pdf",
+    preview: "/certificates/thumbnails/Android Developer Internship.jpg"
   },
 ];
 
@@ -198,9 +210,8 @@ const Spinner = () => (
 function ProjectCard({ item, index }: { item: typeof projects[0], index: number }) {
   return (
     <div
-      className="group relative rounded-3xl border border-white/15 overflow-hidden bg-black
-      hover:border-white/30 transition-all duration-500 shadow-2xl backdrop-blur-3xl w-[90%] max-w-[340px] md:w-full md:max-w-none mx-auto flex flex-col"
-      style={{ backdropFilter: "blur(40px)" }}
+      className="group relative rounded-3xl border border-white/15 overflow-hidden bg-[#0c0c0c]
+      hover:border-white/30 transition-all duration-300 shadow-2xl w-[90%] max-w-[340px] md:w-full md:max-w-none mx-auto flex flex-col"
     >
       <div className="relative w-full h-48 overflow-hidden bg-white/5">
         <img
@@ -270,17 +281,17 @@ function ProjectCard({ item, index }: { item: typeof projects[0], index: number 
 function CertCard({ item, onView }: { item: typeof certificates[0] & { link?: string }; onView: () => void }) {
   return (
     <div className="portfolio10-cert-card group h-[400px] flex flex-col w-full">
-      <div className="portfolio10-cert-image shrink-0 relative overflow-hidden bg-white/5 flex items-center justify-center">
-        {item.thumbnail.endsWith(".pdf") ? (
-            <iframe 
-                src={`${item.thumbnail}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`} 
-                className="absolute w-[calc(100%+18px)] h-[calc(100%+18px)] top-0 left-0 pointer-events-none border-0" 
-                scrolling="no" 
-                title={item.title}
-            />
-        ) : (
-            <img src={item.thumbnail} alt={item.title} />
-        )}
+      <div 
+        onClick={onView} 
+        className="portfolio10-cert-image shrink-0 relative overflow-hidden bg-white/5 flex items-center justify-center cursor-pointer"
+      >
+        <img 
+          src={item.preview || item.pdf} 
+          alt={item.title} 
+          loading="lazy"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+        />
+        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
       </div>
       <div className="portfolio10-cert-content flex flex-col flex-grow">
         <h3 className="line-clamp-2" title={item.title}>{item.title}</h3>
@@ -298,7 +309,7 @@ function CertCard({ item, onView }: { item: typeof certificates[0] & { link?: st
           </div>
         </div>
       </div>
-      
+
       <style>{`
         .portfolio10-cert-card {
             background: #0f0f0f;
@@ -452,15 +463,17 @@ function TechGrid() {
 function CertModal({ cert, onClose }: { cert: any; onClose: () => void }) {
   const [downloading, setDownloading] = useState(false);
 
+  const fileUrl = cert.pdf || cert.thumbnail || cert.preview;
+
   const handleDownload = async () => {
     setDownloading(true);
     try {
-      const response = await fetch(cert.thumbnail, { mode: "cors" });
+      const response = await fetch(fileUrl, { mode: "cors" });
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `${cert.title}.jpg`;
+      link.download = `${cert.title}.${fileUrl.endsWith(".pdf") ? "pdf" : "jpg"}`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -485,14 +498,14 @@ function CertModal({ cert, onClose }: { cert: any; onClose: () => void }) {
           </button>
         </div>
         <div className="p-4 flex justify-center bg-black/20 w-full h-[65vh]">
-          {cert.thumbnail.endsWith(".pdf") ? (
-            <iframe 
-                src={cert.thumbnail} 
-                className="w-full h-full rounded-lg shadow-lg border border-white/5" 
-                title={cert.title}
+          {fileUrl.endsWith(".pdf") ? (
+            <iframe
+              src={fileUrl}
+              className="w-full h-full rounded-lg shadow-lg border border-white/5"
+              title={cert.title}
             />
           ) : (
-            <img src={cert.thumbnail} alt={cert.title} className="max-h-[60vh] object-contain rounded-lg shadow-lg border border-white/5" />
+            <img src={fileUrl} alt={cert.title} className="max-h-[60vh] object-contain rounded-lg shadow-lg border border-white/5" />
           )}
         </div>
         <div className="p-4 border-t border-white/10 bg-black/50 flex justify-end gap-3">
@@ -547,18 +560,18 @@ export default function ShowcaseSection() {
 
         {/* Content Area - Sequential Layout */}
         <div className="w-full flex flex-col items-center gap-32 pb-32">
-          
+
           {/* Projects Section */}
           <div className="w-full relative z-20 flex flex-col items-center" style={{ perspective: '1000px' }}>
             <h2 className="font-display text-4xl sm:text-5xl font-bold tracking-tighter text-white mb-16 opacity-0 animate-[fadeSlideUp_0.8s_ease_forwards]">
               Projects
             </h2>
-            <CylinderCarousel 
+            <CylinderCarousel
               items={projects.map((item, i) => (
                 <ProjectCard key={i} item={item} index={i} />
-              ))} 
-              radius={430} 
-              itemWidth={290} 
+              ))}
+              radius={430}
+              itemWidth={290}
             />
           </div>
 

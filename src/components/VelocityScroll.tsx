@@ -76,7 +76,7 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxTextProps) {
       ref={containerRef}
       className="w-full overflow-hidden whitespace-nowrap flex flex-nowrap"
     >
-      <motion.div className="inline-flex flex-nowrap" style={{ x }}>
+      <motion.div className="inline-flex flex-nowrap will-change-transform" style={{ x }}>
         {Array.from({ length: repetitions }).map((_, i) => (
           <span key={i} ref={i === 0 ? textRef : null} className="pr-8">
             {children}

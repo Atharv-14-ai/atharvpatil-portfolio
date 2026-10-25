@@ -9,36 +9,29 @@ interface CylinderCarouselProps {
 
 export default function CylinderCarousel({ items, radius = 450, itemWidth = 320 }: CylinderCarouselProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  
+
   // Track scroll progress of the wrapper relative to viewport
   const { scrollYProgress } = useScroll({
     target: wrapperRef,
     offset: ["start start", "end end"]
   });
 
-  // Add a slight spring to make the scroll rotation feel smooth and weighty
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 25,
-    restDelta: 0.001
-  });
-
-  // Map scroll progress (0 to 1) to a full rotation (0 to -360 degrees)
-  const rotation = useTransform(smoothProgress, [0, 1], [0, -360]);
+  // Direct transform without spring lag/queue overhead
+  const rotation = useTransform(scrollYProgress, [0, 1], [0, -360]);
 
   const numItems = items.length;
   const theta = 360 / numItems;
 
   return (
-    <div ref={wrapperRef} className="relative w-full h-[300vh]">
+    <div ref={wrapperRef} className="relative w-full h-[250vh]">
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden pt-24">
-        
-        <div 
+
+        <div
           className="relative w-full flex items-center justify-center"
           style={{ height: '500px', perspective: '1600px' }}
         >
           <motion.div
-            className="relative w-full h-full flex items-center justify-center"
+            className="relative w-full h-full flex items-center justify-center will-change-transform"
             style={{
               transformStyle: 'preserve-3d',
               rotateY: rotation
@@ -49,11 +42,11 @@ export default function CylinderCarousel({ items, radius = 450, itemWidth = 320 
               return (
                 <div
                   key={index}
-                  className="absolute"
+                  className="absolute will-change-transform"
                   style={{
                     width: itemWidth,
                     transform: `rotateY(${rotateY}deg) translateZ(${radius}px)`,
-                    backfaceVisibility: 'visible', // Visible from the back for 3D depth
+                    backfaceVisibility: 'hidden', // Crucial: saves 6x GPU render passes
                   }}
                 >
                   {item}

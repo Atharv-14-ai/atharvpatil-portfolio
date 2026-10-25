@@ -14,17 +14,17 @@ export default function CustomCursor() {
       const target = document.elementFromPoint(position.x, position.y);
       if (!target) return;
 
-      const isClickable = 
+      const isClickable =
         window.getComputedStyle(target).cursor === "pointer" ||
         target.tagName.toLowerCase() === "a" ||
         target.tagName.toLowerCase() === "button";
-        
+
       setIsPointer(isClickable);
     };
 
     window.addEventListener("mousemove", updatePosition);
     window.addEventListener("mouseover", updateCursorType);
-    
+
     // Add CSS to hide default cursor
     document.body.style.cursor = "none";
 
